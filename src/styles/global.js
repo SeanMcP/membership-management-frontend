@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     body {
+        background: ${p => p.theme.background};
+        color: ${p => p.theme.text};
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
             'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
