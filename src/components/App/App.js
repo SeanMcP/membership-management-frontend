@@ -1,8 +1,12 @@
 import React from 'react'
-import './App.css'
+import StyleProvider from 'styles/StyleProvider'
 
 function App() {
-    return <div className="App">Hello world</div>
+    return (
+        <StyleProvider>
+            <div className="App">Hello world</div>
+        </StyleProvider>
+    )
 }
 
 export default App
