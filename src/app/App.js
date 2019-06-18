@@ -1,15 +1,15 @@
 import React from 'react'
 
 import StyleProvider from 'styles/StyleProvider'
-import Content from 'components/layout/Content/Content'
+import Router from 'routing/Router'
 import * as S from './App.styled'
 
 function App() {
     return (
         <StyleProvider>
-            <Content>
-                <S.Container>Hello world</S.Container>
-            </Content>
+            <S.Container>
+                <Router />
+            </S.Container>
         </StyleProvider>
     )
 }

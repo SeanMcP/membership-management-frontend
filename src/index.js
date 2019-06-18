@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App/App'
+import App from './app/App'
 import * as serviceWorker from './serviceWorker'
 
 if (process.env.NODE_ENV === 'development') {
