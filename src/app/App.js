@@ -8,17 +8,17 @@ import Router from 'routing/Router'
 import * as S from './App.styled'
 
 function App() {
-    return (
-        <StyleProvider>
-            <Provider store={store}>
-                <AppContextProvider>
-                    <S.Container>
-                        <Router />
-                    </S.Container>
-                </AppContextProvider>
-            </Provider>
-        </StyleProvider>
-    )
+  return (
+    <StyleProvider>
+      <Provider store={store}>
+        <AppContextProvider>
+          <S.Container>
+            <Router />
+          </S.Container>
+        </AppContextProvider>
+      </Provider>
+    </StyleProvider>
+  )
 }
 
 export default App
