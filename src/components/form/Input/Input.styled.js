@@ -4,7 +4,9 @@ const margin = css`
   margin: 0.5rem 0;
 `
 
-export const Container = styled.div``
+export const Container = styled.div`
+  ${margin}
+`
 
 export const Label = styled.label`
   display: block;

@@ -1,10 +1,13 @@
 import React from 'react'
+import { useField } from 'formik'
 
 import * as S from './Input.styled'
 
-const Input = ({ error, hasErrors, help, hideLabel, id, label, ...props }) => {
+const Input = ({ help, hideLabel, id, label, ...props }) => {
+  const [field, meta] = useField(props.name)
   const inputId = id || `${props.name}-${props.type}`
   const helpId = `${inputId}--HELP`
+  const hasErrors = meta.touched && meta.error
   return (
     <S.Container>
       {!hideLabel && <S.Label htmlFor={inputId}>{label}</S.Label>}
@@ -13,9 +16,10 @@ const Input = ({ error, hasErrors, help, hideLabel, id, label, ...props }) => {
         aria-describedby={help ? helpId : null}
         hasErrors={hasErrors}
         id={inputId}
+        {...field}
         {...props}
       />
-      {hasErrors && <S.Error>{error}</S.Error>}
+      {hasErrors && <S.Error>{meta.error}</S.Error>}
     </S.Container>
   )
 }
