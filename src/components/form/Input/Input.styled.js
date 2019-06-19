@@ -25,6 +25,11 @@ export const Input = styled.input`
   font-size: inherit;
   padding: 0.5rem;
 
+  &:focus {
+    box-shadow: 0 0 4px 2px ${p => p.theme.primary};
+    outline: 4px solid transparent;
+  }
+
   ${p =>
     p.hasErrors &&
     css`
