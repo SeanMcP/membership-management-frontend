@@ -26,7 +26,7 @@ const LoginForm = ({ level = 2, ...props }) => {
         )}
       />
       <p>
-        <Link to="/register">Or register</Link>.
+        <Link to="/register">Or register</Link>
       </p>
     </div>
   )
