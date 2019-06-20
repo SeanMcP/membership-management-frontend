@@ -9,7 +9,6 @@ export default styled.button`
   font-family: inherit;
   font-size: inherit;
   padding: 0.5rem 0.75rem;
-  margin-left: 0.5rem
 
   &:focus {
     box-shadow: 0 0 4px 2px ${p => p.theme.accent};
