@@ -30,12 +30,12 @@ const RegisterForm = ({ level = 2, ...props }) => {
             <Input name="email" label="Email" />
             <Input name="password" label="Password" type="password" />
             <Button type="submit">Register</Button>
-            <Link to="/">
-             <Button>Login</Button>
-            </Link>
           </form>
         )}
       />
+      <p>
+        Already have an account? <Link to="/">Login here</Link>.
+      </p>
     </div>
   )
 }
