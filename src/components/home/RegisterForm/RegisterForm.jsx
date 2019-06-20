@@ -1,22 +1,23 @@
 import React from 'react'
 import { Formik } from 'formik'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import Input from 'components/form/Input/Input'
 import Button from 'components/form/Button/Button'
-import axios from "axios";
+import axios from 'axios'
 
-const LoginForm = ({ level = 2, ...props }) => {
+const RegisterForm = ({ level = 2, ...props }) => {
   const Heading = `h${level}`
-  const url = 'http://localhost:3001/users/login'
+  const url = 'http://localhost:3001/users'
   return (
     <div>
-      <Heading>Login</Heading>
+      <Heading>Register</Heading>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ name: '', email: '', password: '' }}
         onSubmit={async (values, actions) => {
           console.log(values)
           actions.resetForm()
           const payload = {
+            name: values.name,
             email: values.email,
             password: values.password
           }
@@ -25,18 +26,18 @@ const LoginForm = ({ level = 2, ...props }) => {
         }}
         render={props => (
           <form onSubmit={props.handleSubmit}>
+            <Input name="name" label="Name" />
             <Input name="email" label="Email" />
             <Input name="password" label="Password" type="password" />
-            <Button type="submit">Login</Button>
-            <Link to="/register">
-             <Button>Register</Button>
+            <Button type="submit">Register</Button>
+            <Link to="/">
+             <Button>Login</Button>
             </Link>
           </form>
         )}
       />
-      
     </div>
   )
 }
 
-export default LoginForm
+export default RegisterForm
