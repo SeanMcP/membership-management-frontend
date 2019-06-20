@@ -1,28 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import Input from 'components/form/Input/Input'
 import Button from 'components/form/Button/Button'
-import axios from 'axios'
+import { register } from 'actions'
 
 const RegisterForm = ({ level = 2, ...props }) => {
   const Heading = `h${level}`
-  const url = 'http://localhost:3001/users'
   return (
     <div>
       <Heading>Register</Heading>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         onSubmit={async (values, actions) => {
-          console.log(values)
+          props.register(values)
           actions.resetForm()
-          const payload = {
-            name: values.name,
-            email: values.email,
-            password: values.password
-          }
-          const user = await axios.post(url, payload)
-          console.log(user)
         }}
         render={props => (
           <form onSubmit={props.handleSubmit}>
@@ -34,10 +27,13 @@ const RegisterForm = ({ level = 2, ...props }) => {
         )}
       />
       <p>
-        Already have an account? <Link to="/">Login here</Link>.
+        <Link to="/">Or login</Link>.
       </p>
     </div>
   )
 }
 
-export default RegisterForm
+export default connect(
+  undefined,
+  { register }
+)(RegisterForm)

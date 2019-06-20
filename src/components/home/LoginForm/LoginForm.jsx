@@ -14,7 +14,7 @@ const LoginForm = ({ level = 2, ...props }) => {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values, actions) => {
-          props.login(values.email, values.password)
+          props.login(values)
           actions.resetForm()
         }}
         render={props => (
@@ -26,7 +26,7 @@ const LoginForm = ({ level = 2, ...props }) => {
         )}
       />
       <p>
-        Don't have an account? <Link to="/register">Register here</Link>.
+        <Link to="/register">Or register</Link>.
       </p>
     </div>
   )

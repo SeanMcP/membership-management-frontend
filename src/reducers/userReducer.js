@@ -7,7 +7,8 @@ export const userState = {
 
 export default function(state = userState, { type, payload }) {
   switch (type) {
-    case USER_ACTIONS.LOGIN: {
+    case USER_ACTIONS.LOGIN:
+    case USER_ACTIONS.REGISTER: {
       return {
         ...state,
         user: payload.user
