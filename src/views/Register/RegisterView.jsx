@@ -1,15 +1,15 @@
 import React from 'react'
 
 import Content from 'components/layout/Content/Content'
-import LoginForm from 'components/home/LoginForm/LoginForm'
+import RegisterForm from 'components/register/RegisterForm/RegisterForm'
 import ViewWrapper from 'components/layout/ViewWrapper/ViewWrapper'
 
-const HomeView = props => (
-  <ViewWrapper title="Home">
+const RegisterView = props => (
+  <ViewWrapper title="Register">
     <Content>
-      <LoginForm />
+      <RegisterForm />
     </Content>
   </ViewWrapper>
 )
 
-export default HomeView
+export default RegisterView
