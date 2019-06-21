@@ -9,33 +9,41 @@ export const USER_ACTIONS = {
 export const login = ({ email, password }) => {
   const url = 'http://localhost:3001/users/login'
   return async dispatch => {
-    const user = await axios.post(url, {
-      email,
-      password
-    })
-    dispatch({
-      type: USER_ACTIONS.LOGIN,
-      payload: {
-        user
-      }
-    })
+    try {
+      const user = await axios.post(url, {
+        email,
+        password
+      })
+      dispatch({
+        type: USER_ACTIONS.LOGIN,
+        payload: {
+          user
+        }
+      })
+    } catch (err) {
+      alert(err)
+    }
   }
 }
 
 export const register = ({ name, email, password }) => {
   const url = 'http://localhost:3001/users/register'
   return async dispatch => {
-    const user = await axios.post(url, {
-      name,
-      email,
-      password
-    })
-    dispatch({
-      type: USER_ACTIONS.REGISTER,
-      payload: {
-        user
-      }
-    })
+    try {
+      const user = await axios.post(url, {
+        name,
+        email,
+        password
+      })
+      dispatch({
+        type: USER_ACTIONS.REGISTER,
+        payload: {
+          user
+        }
+      })
+    } catch (err) {
+      alert(err)
+    }
   }
 }
 
