@@ -4,7 +4,7 @@ import Content from 'components/layout/Content/Content'
 import ViewWrapper from 'components/layout/ViewWrapper/ViewWrapper'
 import { useBrandContext } from 'context/brand/BrandContext'
 import ColorInput from 'components/brand/ColorInput/ColorInput'
-import * as S from './BrandView.styled'
+import Grid from 'components/layout/Grid/Grid'
 
 const BrandView = props => {
   const [state, dispatch] = useBrandContext()
@@ -35,7 +35,7 @@ const BrandView = props => {
           perspiciatis non.
         </p>
         <h2>Variables</h2>
-        <S.Grid>{fields}</S.Grid>
+        <Grid columns={2}>{fields}</Grid>
       </Content>
     </ViewWrapper>
   )
