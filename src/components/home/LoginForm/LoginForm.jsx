@@ -4,7 +4,7 @@ import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
 import Input from 'components/form/Input/Input'
 import Button from 'components/form/Button/Button'
-import { login } from 'actions'
+import { login, readUserProfile } from 'actions'
 
 const LoginForm = ({ level = 2, ...props }) => {
   const Heading = `h${level}`
@@ -13,8 +13,8 @@ const LoginForm = ({ level = 2, ...props }) => {
       <Heading>Login</Heading>
       <Formik
         initialValues={{ email: '', password: '' }}
-        onSubmit={(values, actions) => {
-          props.login(values)
+        onSubmit={async (values, actions) => {
+          await props.login(values)
           actions.resetForm()
         }}
         render={props => (
@@ -34,5 +34,5 @@ const LoginForm = ({ level = 2, ...props }) => {
 
 export default connect(
   undefined,
-  { login }
+  { login, readUserProfile }
 )(LoginForm)
