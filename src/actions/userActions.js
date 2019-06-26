@@ -23,9 +23,11 @@ export const register = ({ name, email, password }) => {
       })
       axios.defaults.headers.common = `Bearer ${user.data.token}`
       dispatch({
-        type: USER_ACTIONS.REGISTER
+        type: USER_ACTIONS.REGISTER,
+        payload: {
+          user: user.data.user
+        }
       })
-      dispatch(readUserProfile())
     } catch (err) {
       alert(err)
     }
@@ -43,9 +45,9 @@ export const login = ({ email, password }) => {
       })
       axios.defaults.headers.common = {'Authorization': `Bearer ${user.data.token}`}
       dispatch({
-        type: USER_ACTIONS.LOGIN
+        type: USER_ACTIONS.LOGIN,
+        payload: user.data.user
       })
-      dispatch(readUserProfile())
     } catch (err) {
       alert(err)
     }

@@ -12,12 +12,18 @@ export default function(state = userState, { type, payload }) {
     case USER_ACTIONS.REGISTER: {
       return {
         ...state,
+        email: payload.user.email,
+        name: payload.user.name,
+        id: payload.user._id,
         isAuthenticated: true
       }
     }
     case USER_ACTIONS.LOGIN: {
       return {
         ...state,
+        email: payload.email,
+        name: payload.name,
+        id: payload._id,
         isAuthenticated: true
       }
     }
