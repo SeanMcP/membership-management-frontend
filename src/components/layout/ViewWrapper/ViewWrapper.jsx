@@ -1,11 +1,10 @@
 import React from 'react'
-import { useAppContext } from 'context/app/AppContext'
+import APP from 'constants/app'
 
 const ViewWrapper = ({ children, title }) => {
-  const { name } = useAppContext()
   React.useEffect(() => {
-    document.title = `${title} - ${name}`
-  }, [name, title])
+    document.title = `${title} - ${APP.TITLE}`
+  }, [title])
   return (
     <main id="main" role="main">
       {children}
