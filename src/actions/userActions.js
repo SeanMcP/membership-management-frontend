@@ -10,7 +10,7 @@ export const USER_ACTIONS = {
 const url = 'https://membership-management-api.herokuapp.com'
 
 export const register = ({ name, email, password }) => {
-  const endpoint = `${url}/users/register`
+  const endpoint = `${url}/users/`
   return async dispatch => {
     try {
       const user = await axios.post(endpoint, {
@@ -56,7 +56,7 @@ export const readUserProfile = () => {
   const endpoint = `${url}/users/me`
   return async dispatch => {
     try {
-      const user = await axios.post(endpoint)
+      const user = await axios.get(endpoint)
       console.log(user)
       dispatch({
         type: USER_ACTIONS.READ_USER_PROFILE,
