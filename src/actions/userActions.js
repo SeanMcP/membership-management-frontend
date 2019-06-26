@@ -58,10 +58,11 @@ export const readUserProfile = () => {
   return async dispatch => {
     try {
       const user = await axios.get(endpoint)
+      console.log(user)
       dispatch({
         type: USER_ACTIONS.READ_USER_PROFILE,
         payload: {
-          user: user.data.user,
+          user: user.data,
           isAuthenticated: true
         }
       })

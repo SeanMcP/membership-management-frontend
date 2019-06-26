@@ -2,7 +2,9 @@ import { USER_ACTIONS } from 'actions/userActions'
 
 export const userState = {
   isAuthenticated: false,
-  user: {}
+  email: '',
+  name: '',
+  id: ''
 }
 
 export default function(state = userState, { type, payload }) {
@@ -22,15 +24,15 @@ export default function(state = userState, { type, payload }) {
     case USER_ACTIONS.READ_USER_PROFILE: {
       return {
         ...state,
-        user: payload.user,
+        email: payload.user.email,
+        name: payload.user.name,
+        id: payload.user._id,
         isAuthenticated: payload.isAuthenticated
       }
     }
     case USER_ACTIONS.LOGOUT: {
       return {
-        ...state,
-        user: {},
-        isAuthenticated: false
+        ...userState
       }
     }
     default: {
