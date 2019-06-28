@@ -5,6 +5,7 @@ import Header from 'components/layout/Header/Header'
 import BrandView from 'views/Brand/BrandView'
 import HomeView from 'views/Home/HomeView'
 import RegisterView from 'views/Register/RegisterView'
+import DashboardView from 'views/Dashboard/DashboardView'
 
 export default () => (
   <>
@@ -13,6 +14,7 @@ export default () => (
       <Route path="/" exact component={HomeView} />
       <Route path="/register" component={RegisterView} />
       <Route path="/brand" component={BrandView} />
+      <Route path="/dashboard" component={DashboardView} />
     </Router>
   </>
 )
