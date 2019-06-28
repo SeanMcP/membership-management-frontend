@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Formik } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+
 import Input from 'components/form/Input/Input'
 import Button from 'components/form/Button/Button'
-import { login, readUserProfile } from 'actions'
+import { login } from 'actions'
 
 const LoginForm = ({ level = 2, ...props }) => {
   const Heading = `h${level}`
@@ -14,8 +15,11 @@ const LoginForm = ({ level = 2, ...props }) => {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={async (values, actions) => {
-          await props.login(values)
+          const authenticated = await props.login(values)
           actions.resetForm()
+          if (authenticated) {
+            props.history.push('/dashboard')
+          }
         }}
         render={props => (
           <form onSubmit={props.handleSubmit}>
@@ -32,7 +36,7 @@ const LoginForm = ({ level = 2, ...props }) => {
   )
 }
 
-export default connect(
+export default withRouter(connect(
   undefined,
-  { login, readUserProfile }
-)(LoginForm)
+  { login }
+)(LoginForm))

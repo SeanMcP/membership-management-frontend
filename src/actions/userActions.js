@@ -48,8 +48,9 @@ export const login = ({ email, password }) => {
         type: USER_ACTIONS.LOGIN,
         payload: user.data.user
       })
+      return true
     } catch (err) {
-      alert(err)
+      alert('Oops, something went wrong...please try again!')
     }
   }
 }

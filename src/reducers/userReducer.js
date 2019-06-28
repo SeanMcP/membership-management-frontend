@@ -3,7 +3,7 @@ import { USER_ACTIONS } from 'actions/userActions'
 export const userState = {
   isAuthenticated: false,
   email: '',
-  name: '',
+  name: 'Friend',
   id: ''
 }
 
